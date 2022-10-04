@@ -3,16 +3,11 @@
 
 @section('content')
 
+    <div class="blog-post">
+        <h2 class="blog-post-title">{{ $movie->title }}</h2>
+        <p class="blog-post-meta">Release date:{{ $movie->year }} by:<a href="#">{{ $movie->director }}</a></p>
 
-    <h2>{{ $movie->title }}</h2>
-
-
-    <p>Genre:{{ $movie->genre }}</p>
-    Release date:{{ $movie->year }}
-    <p>Director:{{ $movie->director }}</p>
-    <p>Storyline:{{ $movie->storyline }}</p>
-
-
-
+        <p>Storyline:{{ $movie->storyline }}</p>
+    </div><!-- /.blog-post -->
 
 @endsection
