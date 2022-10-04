@@ -1,4 +1,9 @@
-<div>
+@extends('layouts.master')
+@section('title', $movie->title)
+
+@section('content')
+
+
     <h2>{{ $movie->title }}</h2>
 
 
@@ -9,4 +14,5 @@
 
 
 
-</div><!-- /.blog-post -->
+
+@endsection

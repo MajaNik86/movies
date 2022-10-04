@@ -1,14 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
+@extends('layouts.master')
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Movies</title>
-</head>
+@section('title', 'Movie')
 
-<body>
+@section('content')
+
     <ul>
         @foreach ($movies as $movie)
             <a href="{{ route('single-movie', ['id' => $movie->id]) }}">
@@ -19,7 +14,4 @@
             </p>
         @endforeach
     </ul>
-
-</body>
-
-</html>
+@endsection
