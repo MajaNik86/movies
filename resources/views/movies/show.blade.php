@@ -12,4 +12,15 @@
         <p>Storyline:{{ $movie->storyline }}</p>
     </div><!-- /.blog-post -->
 
+    <div>
+        <h4>Comments: </h4>
+        <ul>
+            @foreach ($movie->comments as $comment)
+                <li>{{ $comment->content }}
+                    <p>created at: {{ $comment->created_at }}</p>
+                </li>
+            @endforeach
+        </ul>
+    </div>
+
 @endsection
