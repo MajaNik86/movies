@@ -14,4 +14,11 @@ class Movie extends Model
     {
         return $this->hasMany(Comment::class);
     }
+
+    public function addComments($content)
+    {
+        $this->comments()->create([
+            'content' => $content,
+        ]);
+    }
 }
