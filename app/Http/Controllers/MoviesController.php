@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Movie;
 use Illuminate\Http\Request;
+use App\Http\Requests\CreateMovieRequest;
 
 class MoviesController extends Controller
 {
@@ -22,23 +23,16 @@ class MoviesController extends Controller
     {
         return view('movies.create');
     }
-    public function store()
+    public function store(CreateMovieRequest $request)
     {
+        $validated = $request->validated();
 
-
-        request()->validate([
-            'title' => 'required',
-            'genre' => 'required',
-            'director' => 'required',
-            'year' => 'required|digits:4|integer|min:1900|max:' . (date('Y') + 1),
-            'storyline' => 'required|max:1000'
-        ]);
         Movie::create([
-            'title' => request('title'),
-            'genre' => request('genre'),
-            'director' => request('director'),
-            'year' => request('year'),
-            'storyline' => request('storyline'),
+            'title' => $validated['title'],
+            'genre' => $validated['genre'],
+            'director' => $validated['director'],
+            'year' => $validated['year'],
+            'storyline' => $validated['storyline'],
         ]);
 
         return redirect('/movies');
